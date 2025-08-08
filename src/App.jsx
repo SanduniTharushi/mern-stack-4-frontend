@@ -1,18 +1,19 @@
+import { BrowserRouter, Routes,Route } from "react-router-dom";
 import "./App.css";
+import AdminPage from "./pages/adminPage";
+import LoginPage from "./pages/loginPage";
 
 function App() {
   return (
-    <div className="w-full h-screen bg-pink-200">
-      <div className="w-[500px] h-[500px] flex flex-col justify-center items-center bg-gray-200">
-        <div className="w-[90px] h-[90px] bg-amber-200"></div>
-
-        <div className="w-[90px] h-[90px] bg-amber-700"></div>
-
-        <div className="w-[90px] h-[90px] bg-green-200"></div>
-
-        <div className="w-[90px] h-[90px] bg-blue-200"></div>
-      </div>
-    </div>
+    <BrowserRouter>
+    <Routes path="/*">
+    <Route path="/admin/*" element={<AdminPage/>}/>
+    <Route path="/login" element={<LoginPage/>}/>
+    <Route path="/" element={<h1>Home</h1>}/>
+    <Route path ="/*" element={<h1>404 not found</h1>}/>
+    </Routes>
+    </BrowserRouter>
+    
   );
 }
 
